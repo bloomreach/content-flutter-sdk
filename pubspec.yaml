@@ -4,8 +4,8 @@
 
 name: 'brcontent'
 version: '0.0.1'
-description: 'Bloomreach Content - Page API Client'
-homepage: 'homepage'
+description: 'Bloomreach Content - Page Delivery API Client'
+homepage: 'https://github.com/bloomreach/dart-pageapi-client'
 environment:
   sdk: '>=2.12.0 <3.0.0'
 dependencies:
