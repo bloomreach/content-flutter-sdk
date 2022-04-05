@@ -1,0 +1,351 @@
+openapi: 3.0.3
+info:
+  title: Page Delivery API
+  description: ''
+  contact:
+    email: kenan.salic@bloomreach.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: '1.0'
+servers:
+  - url: https://kenan.bloomreach.io
+tags:
+  - name: page
+    description: Page Delivery API
+paths:
+  /delivery/site/v1/channels/{channel_id}/pages/{path}:
+    get:
+      tags:
+        - page
+      summary: Get Page by path
+      operationId: getPage
+      parameters:
+        - name: path
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
+        - name: channel_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page'
+        '404':
+          description: Page not found
+          content: {}
+components:
+  schemas:
+    Channel:
+      type: object
+      properties:
+        info:
+          type: object
+          properties:
+            props:
+              type: object
+              additionalProperties:
+                type: string
+    Link:
+      required:
+        - href
+        - type
+      type: object
+      properties:
+        href:
+          type: string
+        type:
+          type: string
+    Pointer:
+      type: object
+      properties:
+        $ref:
+          type: string
+    ComponentMeta:
+      type: object
+      properties:
+        params:
+          type: object
+          additionalProperties:
+            type: string
+        paramsInfo:
+          type: object
+          additionalProperties:
+            type: string
+    Element:
+      required:
+        - type
+      type: object
+      properties:
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+        meta:
+          $ref: '#/components/schemas/ComponentMeta'
+        type:
+          type: string
+          enum:
+            - document
+            - component
+            - menu
+            - container
+            - container-item
+            - asset
+            - imageset
+      discriminator:
+        propertyName: type
+        mapping:
+          component: '#/components/schemas/Component'
+          container-item: '#/components/schemas/ContainerItem'
+          container: '#/components/schemas/Container'
+          document: '#/components/schemas/Document'
+          imageset: '#/components/schemas/Imageset'
+          menu: '#/components/schemas/Menu'
+          componentcontent: '#/components/schemas/ComponentContent'
+          pagination: '#/components/schemas/Pagination'
+    AbstractComponent:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        name:
+          type: string
+      allOf:
+        - $ref: '#/components/schemas/Element'
+    Component:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pointer'
+        models:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Pointer'
+      allOf:
+        - $ref: '#/components/schemas/AbstractComponent'
+      discriminator:
+        propertyName: type
+    PaginationPage:
+      type: object
+      properties:
+        number:
+          type: integer
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+    Pagination:
+      type: object
+      properties:
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pointer'
+        offset:
+          type: integer
+        total:
+          type: integer
+        size:
+          type: integer
+        first:
+          $ref: '#/components/schemas/PaginationPage'
+        current:
+          $ref: '#/components/schemas/PaginationPage'
+        previous:
+          $ref: '#/components/schemas/PaginationPage'
+        next:
+          $ref: '#/components/schemas/PaginationPage'
+        last:
+          $ref: '#/components/schemas/PaginationPage'
+        pages:
+          type: array
+          items:
+            $ref: '#/components/schemas/PaginationPage'
+        enabled:
+          type: boolean
+      allOf:
+        - $ref: '#/components/schemas/Element'
+      discriminator:
+        propertyName: type
+    Data:
+      type: object
+      properties:
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    Document:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Data'
+      allOf:
+        - $ref: '#/components/schemas/Element'
+      discriminator:
+        propertyName: type
+    ComponentContent:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/Data'
+      allOf:
+        - $ref: '#/components/schemas/Element'
+      discriminator:
+        propertyName: type
+    MenuItem:
+      type: object
+      properties:
+        depth:
+          type: integer
+        repositoryBased:
+          type: boolean
+        properties:
+          type: object
+          additionalProperties:
+            type: string
+        name:
+          type: string
+        childMenuItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/MenuItem'
+        expanded:
+          type: boolean
+        selected:
+          type: boolean
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+    Menu:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            name:
+              type: string
+            siteMenuItems:
+              type: array
+              items:
+                $ref: '#/components/schemas/MenuItem'
+          additionalProperties:
+            type: object
+      allOf:
+        - $ref: '#/components/schemas/Element'
+      discriminator:
+        propertyName: type
+    Image:
+      type: object
+      properties:
+        width:
+          type: integer
+        height:
+          type: integer
+        lastModified:
+          type: integer
+        mimeType:
+          type: string
+        size:
+          type: integer
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+    ImageData:
+      type: object
+      properties:
+        fileName:
+          type:
+            string
+        thumbnail:
+            $ref: '#/components/schemas/Image'
+        original:
+            $ref: '#/components/schemas/Image'
+      additionalProperties:
+        type: object
+    Imageset:
+      type: object
+      properties:
+        data:
+          $ref: '#/components/schemas/ImageData'
+      allOf:
+        - $ref: '#/components/schemas/Element'
+      discriminator:
+        propertyName: type
+    Container:
+      type: object
+      properties:
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pointer'
+        xtype:
+          type: string
+      allOf:
+        - $ref: '#/components/schemas/AbstractComponent'
+      discriminator:
+        propertyName: type
+    ContainerItem:
+      type: object
+      properties:
+        ctype:
+          type: string
+        models:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Pointer'
+        content:
+          $ref: '#/components/schemas/Pointer'
+      allOf:
+        - $ref: '#/components/schemas/AbstractComponent'
+      discriminator:
+        propertyName: type
+    PageMeta:
+      type: object
+      properties:
+        branch:
+          type: string
+          default: master
+        product:
+          type: string
+          default: brx
+        version:
+          type: string
+          default: '1.0'
+    Page:
+      type: object
+      properties:
+        meta:
+          $ref: '#/components/schemas/PageMeta'
+        channel:
+          $ref: '#/components/schemas/Channel'
+        links:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Link'
+        root:
+          $ref: '#/components/schemas/Pointer'
+        document:
+          $ref: '#/components/schemas/Pointer'
+        page:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/Element'
