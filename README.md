@@ -37,16 +37,17 @@ TODO
 Please follow the [installation procedure](#installation--usage) and then run the following:
 
 ```dart
-import 'package:pageapi/api.dart';
+import 'package:brcontent/api.dart';
 
+final instance =
+PageApi(ApiClient(basePath: 'https://sandbox-sales02.bloomreach.io'));
 
-final api_instance = PageApi();
 final path = path_example; // String | 
 final channelId = channelId_example; // String | 
 
 try {
-    final result = api_instance.getPage(path, channelId);
-    print(result);
+    final Page page = await instance.getPage(channelId, path);
+    print(page);
 } catch (e) {
     print('Exception when calling PageApi->getPage: $e\n');
 }
