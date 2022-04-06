@@ -18,11 +18,13 @@ Future<void> main() async {
 
   final Page page = await instance.getPage('bauhaus-mobile', '') ;
 
+  print(page.meta?.branch);
+
   var document = page.getDocument();
 
   print('document:' + document.toString());
 
-  Container container = page.getComponentByPath('container') as Container;
+  Container container = page.getComponentByPath('container') ;
 
   var components = container.getComponents(page);
 

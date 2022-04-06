@@ -18,55 +18,28 @@ class PageMeta {
     this.version = '1.0',
   });
 
-  String? branch;
+  String branch;
 
-  String? product;
+  String product;
 
-  String? version;
-
-  @override
-  bool operator ==(Object other) => identical(this, other) || other is PageMeta &&
-     other.branch == branch &&
-     other.product == product &&
-     other.version == version;
-
-  @override
-  int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (branch == null ? 0 : branch.hashCode) +
-    (product == null ? 0 : product.hashCode) +
-    (version == null ? 0 : version.hashCode);
+  String version;
 
   @override
   String toString() => 'PageMeta[branch=$branch, product=$product, version=$version]';
 
-  Map<String, dynamic> toJson() {
-    final json = <String, dynamic>{};
-    if (branch != null) {
-      json[r'branch'] = branch;
-    }
-    if (product != null) {
-      json[r'product'] = product;
-    }
-    if (version != null) {
-      json[r'version'] = version;
-    }
-    return json;
-  }
-
   /// Returns a new [PageMeta] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PageMeta? fromJson(dynamic value) {
+  static PageMeta fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return PageMeta(
-        branch: mapValueOfType<String>(json, r'branch'),
-        product: mapValueOfType<String>(json, r'product'),
-        version: mapValueOfType<String>(json, r'version'),
+        branch: mapValueOfType<String>(json, r'branch') as String,
+        product: mapValueOfType<String>(json, r'product') as String,
+        version: mapValueOfType<String>(json, r'version') as String,
       );
     }
-    return null;
+    throw ArgumentError('Value is not a map');
   }
 
   static List<PageMeta?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>

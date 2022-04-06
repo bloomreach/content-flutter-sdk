@@ -19,68 +19,21 @@ class Channel {
   ChannelInfo? info;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is Channel &&
-     other.info == info;
-
-  @override
-  int get hashCode =>
-  // ignore: unnecessary_parenthesis
-    (info == null ? 0 : info.hashCode);
-
-  @override
   String toString() => 'Channel[info=$info]';
 
-  Map<String, dynamic> toJson() {
-    final json = <String, dynamic>{};
-    if (info != null) {
-      json[r'info'] = info;
-    }
-    return json;
-  }
 
   /// Returns a new [Channel] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Channel? fromJson(dynamic value) {
+  static Channel fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Channel(
         info: ChannelInfo.fromJson(json[r'info']),
       );
     }
-    return null;
+    throw ArgumentError('Value is not a map');
   }
 
-  static List<Channel?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(Channel.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <Channel>[];
-
-  static Map<String, Channel?> mapFromJson(dynamic json) {
-    final map = <String, Channel?>{};
-    if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = Channel.fromJson(value));
-    }
-    return map;
-  }
-
-  // maps a json object with a list of Channel-objects as value to a dart map
-  static Map<String, List<Channel?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
-    final Map<String, List<Channel?>?> map = <String, List<Channel>?>{};
-    if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = Channel.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
-    }
-    return map;
-  }
 }
 

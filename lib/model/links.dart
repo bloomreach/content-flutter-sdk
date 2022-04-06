@@ -19,8 +19,8 @@ class Links {
   Map<String, Link> links;
 
   // ignore: prefer_constructors_over_static_methods
-  static Map<String, Link?> mapFromJson(dynamic json) {
-    final map = <String, Link?>{};
+  static Map<String, Link> mapFromJson(dynamic json) {
+    final map = <String, Link>{};
     if (json is Map && json.isNotEmpty) {
       json
           .cast<String, dynamic>()

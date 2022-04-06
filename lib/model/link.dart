@@ -45,7 +45,7 @@ class Link {
   /// Returns a new [Link] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Link? fromJson(dynamic value) {
+  static Link fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Link(
@@ -53,39 +53,8 @@ class Link {
         type: mapValueOfType<String>(json, r'type'),
       );
     }
-    return null;
+    throw ArgumentError('Value is not a map');
   }
 
-  static List<Link?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
-    json is List && json.isNotEmpty
-      ? json.map(Link.fromJson).toList(growable: true == growable)
-      : true == emptyIsNull ? null : <Link>[];
-
-  static Map<String, Link?> mapFromJson(dynamic json) {
-    final map = <String, Link?>{};
-    if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) => map[key] = Link.fromJson(value));
-    }
-    return map;
-  }
-
-  // maps a json object with a list of Link-objects as value to a dart map
-  static Map<String, List<Link?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
-    final Map<String, List<Link?>?> map = <String, List<Link>?>{};
-    if (json is Map && json.isNotEmpty) {
-      json
-        .cast<String, dynamic>()
-        .forEach((key, dynamic value) {
-          map[key] = Link.listFromJson(
-            value,
-            emptyIsNull: emptyIsNull,
-            growable: growable,
-          );
-        });
-    }
-    return map;
-  }
 }
 
