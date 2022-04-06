@@ -40,7 +40,7 @@ class Component extends AbstractComponent {
   /// Returns a new [Component] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Component? fromJson(dynamic value) {
+  static Component fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Component(
@@ -54,6 +54,6 @@ class Component extends AbstractComponent {
         type: ElementTypeEnum.fromJson(json[r'type']),
       );
     }
-    return null;
+    throw Exception('value is not a map');
   }
 }

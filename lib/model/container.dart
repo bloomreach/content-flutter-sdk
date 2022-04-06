@@ -33,8 +33,8 @@ class Container extends AbstractComponent {
 
   String? xtype;
 
-  List<ContainerItem?> getComponents(Page page) {
-    return this.children!.map((pointer) =>  page.page[pointer!.getReference()!] as ContainerItem?).toList();
+  List<ContainerItem> getComponents(Page page) {
+    return this.children!.map((pointer) =>  page.page[pointer!.getReference()!] as ContainerItem).toList();
   }
 
   @override
@@ -44,7 +44,7 @@ class Container extends AbstractComponent {
   /// Returns a new [Container] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Container? fromJson(dynamic value) {
+  static Container fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Container(
@@ -58,6 +58,6 @@ class Container extends AbstractComponent {
         name: mapValueOfType<String>(json, r'name'),
       );
     }
-    return null;
+    throw Exception('value is not a map');
   }
 }

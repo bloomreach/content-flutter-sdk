@@ -31,7 +31,7 @@ class Element {
   /// Returns a new [Element] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Element? fromJson(dynamic value) {
+  static Element fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Element(
@@ -40,7 +40,7 @@ class Element {
         type: ElementTypeEnum.fromJson(json[r'type']),
       );
     }
-    return null;
+    throw Exception('value is not a map');
   }
 
   static Map<String, Element?> mapFromJson(dynamic json) {

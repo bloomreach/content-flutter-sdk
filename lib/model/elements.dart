@@ -18,8 +18,8 @@ class Elements {
   Map<String, Element> links;
 
   // ignore: prefer_constructors_over_static_methods
-  static Map<String, Element?> mapFromJson(dynamic json) {
-    final map = <String, Element?>{};
+  static Map<String, Element> mapFromJson(dynamic json) {
+    final map = <String, Element>{};
     if (json is Map && json.isNotEmpty) {
       json.cast<String, dynamic>().forEach((key, dynamic value) {
         var ctype = value['type'];

@@ -31,28 +31,28 @@ class Page {
 
   Pointer? document;
 
-  Map<String, Element?> page;
+  Map<String, Element> page;
 
   Document? getDocument() {
     return page[document?.getReference()!] as Document?;
   }
 
-  Element? getRootComponent() {
-    return page[root?.getReference()!];
+  Component getRootComponent() {
+    return page[root?.getReference()!] as Component;
   }
 
-  AbstractComponent? getComponentByPath(String path) {
-    return getComponent(getRootComponent() as Component?, path);
+  AbstractComponent getComponentByPath(String path) {
+    return getComponent(getRootComponent(), path);
   }
 
-  AbstractComponent? getComponent(
-      Component? currentComponent, String currentPath) {
+  AbstractComponent getComponent(
+      Component currentComponent, String currentPath) {
     var paths = currentPath.split('/');
     if (paths.length > 1) {
-      Component? aComponent = currentComponent!.children!
+      Component aComponent = currentComponent!.children!
           .map((pointer) => page[pointer?.getReference()!])
           .where((element) => element!.type == ElementTypeEnum.component)
-          .map((element) => element as Component?)
+          .map((element) => element as Component)
           .where((component) => component!.name == paths[0])
           .first;
       return getComponent(aComponent, paths.sublist(1).join('/'));
@@ -62,7 +62,7 @@ class Page {
           .where((element) =>
               element!.type == ElementTypeEnum.component ||
               element.type == ElementTypeEnum.container)
-          .map((element) => element as AbstractComponent?)
+          .map((element) => element as AbstractComponent)
           .where((abstractComponent) => abstractComponent!.name == paths[0])
           .first;
     }

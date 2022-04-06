@@ -32,7 +32,7 @@ class Document extends Element {
   /// Returns a new [Document] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Document? fromJson(dynamic value) {
+  static Document fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Document(
@@ -42,7 +42,7 @@ class Document extends Element {
         type: ElementTypeEnum.fromJson(json[r'type'])
       );
     }
-    return null;
+    throw Exception('value is not a map');
   }
 
 }
