@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -15,12 +15,12 @@ class Component extends AbstractComponent {
   Component(
       {this.children = const [],
       this.models = const {},
-      String id,
-      String label,
-      String name,
-      Map<String, Link> links = const {},
-      ComponentMeta meta,
-      @required ElementTypeEnum type})
+      String? id,
+      String? label,
+      String? name,
+      Map<String, Link?> links = const {},
+      ComponentMeta? meta,
+      required ElementTypeEnum? type})
       : super(
             type: type,
             links: links,
@@ -29,9 +29,9 @@ class Component extends AbstractComponent {
             label: label,
             name: name);
 
-  List<Pointer> children;
+  List<Pointer?>? children;
 
-  Map<String, Pointer> models;
+  Map<String, Pointer>? models;
 
   @override
   String toString() =>
@@ -40,7 +40,7 @@ class Component extends AbstractComponent {
   /// Returns a new [Component] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Component fromJson(dynamic value) {
+  static Component? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Component(

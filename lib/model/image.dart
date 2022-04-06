@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,17 +21,17 @@ class Image {
     this.links = const {},
   });
 
-  int width;
+  int? width;
 
-  int height;
+  int? height;
 
-  int lastModified;
+  int? lastModified;
 
-  String mimeType;
+  String? mimeType;
 
-  int size;
+  int? size;
 
-  Map<String, Link> links;
+  Map<String, Link?> links;
 
   @override
   String toString() => 'Image[width=$width, height=$height, lastModified=$lastModified, mimeType=$mimeType, size=$size, links=$links]';
@@ -39,7 +39,7 @@ class Image {
   /// Returns a new [Image] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Image fromJson(dynamic value) {
+  static Image? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Image(

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -15,12 +15,12 @@ class Container extends AbstractComponent {
   Container(
       {this.children = const [],
       this.xtype,
-      String id,
-      String label,
-      String name,
-      Map<String, Link> links = const {},
-      ComponentMeta meta,
-      @required ElementTypeEnum type})
+      String? id,
+      String? label,
+      String? name,
+      Map<String, Link?> links = const {},
+      ComponentMeta? meta,
+      required ElementTypeEnum? type})
       : super(
             type: type,
             links: links,
@@ -29,12 +29,12 @@ class Container extends AbstractComponent {
             label: label,
             name: name);
 
-  List<Pointer> children;
+  List<Pointer?>? children;
 
-  String xtype;
+  String? xtype;
 
-  List<ContainerItem> getComponents(Page page) {
-    return this.children.map((pointer) =>  page.page[pointer.getReference()] as ContainerItem).toList();
+  List<ContainerItem?> getComponents(Page page) {
+    return this.children!.map((pointer) =>  page.page[pointer!.getReference()!] as ContainerItem?).toList();
   }
 
   @override
@@ -44,7 +44,7 @@ class Container extends AbstractComponent {
   /// Returns a new [Container] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Container fromJson(dynamic value) {
+  static Container? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Container(

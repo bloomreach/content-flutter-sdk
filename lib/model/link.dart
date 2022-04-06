@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -13,13 +13,13 @@ part of pda.content.bloomreach;
 class Link {
   /// Returns a new [Link] instance.
   Link({
-    @required this.href,
-    @required this.type,
+    required this.href,
+    required this.type,
   });
 
-  String href;
+  String? href;
 
-  String type;
+  String? type;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Link &&
@@ -45,7 +45,7 @@ class Link {
   /// Returns a new [Link] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Link fromJson(dynamic value) {
+  static Link? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Link(
@@ -56,13 +56,13 @@ class Link {
     return null;
   }
 
-  static List<Link> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<Link?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(Link.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <Link>[];
 
-  static Map<String, Link> mapFromJson(dynamic json) {
-    final map = <String, Link>{};
+  static Map<String, Link?> mapFromJson(dynamic json) {
+    final map = <String, Link?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -72,8 +72,8 @@ class Link {
   }
 
   // maps a json object with a list of Link-objects as value to a dart map
-  static Map<String, List<Link>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<Link>>{};
+  static Map<String, List<Link?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<Link?>?> map = <String, List<Link>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

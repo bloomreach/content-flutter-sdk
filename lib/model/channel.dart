@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -16,7 +16,7 @@ class Channel {
     this.info,
   });
 
-  ChannelInfo info;
+  ChannelInfo? info;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Channel &&
@@ -41,7 +41,7 @@ class Channel {
   /// Returns a new [Channel] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Channel fromJson(dynamic value) {
+  static Channel? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Channel(
@@ -51,13 +51,13 @@ class Channel {
     return null;
   }
 
-  static List<Channel> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<Channel?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(Channel.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <Channel>[];
 
-  static Map<String, Channel> mapFromJson(dynamic json) {
-    final map = <String, Channel>{};
+  static Map<String, Channel?> mapFromJson(dynamic json) {
+    final map = <String, Channel?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -67,8 +67,8 @@ class Channel {
   }
 
   // maps a json object with a list of Channel-objects as value to a dart map
-  static Map<String, List<Channel>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<Channel>>{};
+  static Map<String, List<Channel?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<Channel?>?> map = <String, List<Channel>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

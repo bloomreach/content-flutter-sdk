@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -16,7 +16,7 @@ Future<void> main() async {
   final instance =
       PageApi(ApiClient(basePath: 'https://sandbox-sales02.bloomreach.io'));
 
-  final Page page = await instance.getPage('bauhaus-mobile', '');
+  final Page page = await instance.getPage('bauhaus-mobile', '') ;
 
   var document = page.getDocument();
 
@@ -27,7 +27,7 @@ Future<void> main() async {
   var components = container.getComponents(page);
 
   components.forEach((containerItem) {
-    print(containerItem.name);
+    print(containerItem!.name);
     if (containerItem.hasContent()) {
       print(containerItem.getContent(page)?.data);
       print('-----------');
@@ -35,9 +35,9 @@ Future<void> main() async {
   });
 
   page.page.values
-      .where((element) => element.type == ElementTypeEnum.imageset)
-      .map((e) => e as Imageset)
+      .where((element) => element!.type == ElementTypeEnum.imageset)
+      .map((e) => e as Imageset?)
       .forEach((element) {
-    print(element.getImageLink());
+    print(element!.getImageLink());
   });
 }

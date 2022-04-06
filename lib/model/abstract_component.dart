@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -16,16 +16,16 @@ class AbstractComponent extends Element {
       {this.id,
       this.label,
       this.name,
-      Map<String, Link> links = const {},
-      ComponentMeta meta,
-      @required ElementTypeEnum type})
+      Map<String, Link?> links = const {},
+      ComponentMeta? meta,
+      required ElementTypeEnum? type})
       : super(type: type, links: links, meta: meta);
 
-  String id;
+  String? id;
 
-  String label;
+  String? label;
 
-  String name;
+  String? name;
 
   @override
   String toString() =>
@@ -34,7 +34,7 @@ class AbstractComponent extends Element {
   /// Returns a new [AbstractComponent] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AbstractComponent fromJson(dynamic value) {
+  static AbstractComponent? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return AbstractComponent(

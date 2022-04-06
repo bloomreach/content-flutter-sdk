@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -14,14 +14,14 @@ class Imageset extends Element {
   /// Returns a new [Imageset] instance.
   Imageset(
       {this.data,
-      Map<String, Link> links = const {},
-      ComponentMeta meta,
-      @required ElementTypeEnum type})
+      Map<String, Link?> links = const {},
+      ComponentMeta? meta,
+      required ElementTypeEnum? type})
       : super(type: type, links: links, meta: meta);
 
-  ImageData data;
+  ImageData? data;
 
-  String getImageLink() {
+  String? getImageLink() {
     return data?.original?.links['site']?.href;
   }
 
@@ -32,7 +32,7 @@ class Imageset extends Element {
   /// Returns a new [Imageset] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Imageset fromJson(dynamic value) {
+  static Imageset? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Imageset(

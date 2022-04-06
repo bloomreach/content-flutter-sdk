@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -18,11 +18,11 @@ class PageMeta {
     this.version = '1.0',
   });
 
-  String branch;
+  String? branch;
 
-  String product;
+  String? product;
 
-  String version;
+  String? version;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PageMeta &&
@@ -57,7 +57,7 @@ class PageMeta {
   /// Returns a new [PageMeta] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PageMeta fromJson(dynamic value) {
+  static PageMeta? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return PageMeta(
@@ -69,13 +69,13 @@ class PageMeta {
     return null;
   }
 
-  static List<PageMeta> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<PageMeta?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(PageMeta.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <PageMeta>[];
 
-  static Map<String, PageMeta> mapFromJson(dynamic json) {
-    final map = <String, PageMeta>{};
+  static Map<String, PageMeta?> mapFromJson(dynamic json) {
+    final map = <String, PageMeta?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -85,8 +85,8 @@ class PageMeta {
   }
 
   // maps a json object with a list of PageMeta-objects as value to a dart map
-  static Map<String, List<PageMeta>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<PageMeta>>{};
+  static Map<String, List<PageMeta?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<PageMeta?>?> map = <String, List<PageMeta>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

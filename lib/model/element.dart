@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -15,14 +15,14 @@ class Element {
   Element({
     this.links = const {},
     this.meta,
-    @required this.type,
+    required this.type,
   });
 
-  Map<String, Link> links;
+  Map<String, Link?> links;
 
-  ComponentMeta meta;
+  ComponentMeta? meta;
 
-  ElementTypeEnum type;
+  ElementTypeEnum? type;
 
 
   @override
@@ -31,7 +31,7 @@ class Element {
   /// Returns a new [Element] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Element fromJson(dynamic value) {
+  static Element? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Element(
@@ -43,8 +43,8 @@ class Element {
     return null;
   }
 
-  static Map<String, Element> mapFromJson(dynamic json) {
-    final map = <String, Element>{};
+  static Map<String, Element?> mapFromJson(dynamic json) {
+    final map = <String, Element?>{};
     if (json is Map && json.isNotEmpty) {
       json
           .cast<String, dynamic>()
@@ -85,13 +85,13 @@ class ElementTypeEnum {
     imageset,
   ];
 
-  static ElementTypeEnum fromJson(dynamic value) =>
+  static ElementTypeEnum? fromJson(dynamic value) =>
       ElementTypeEnumTypeTransformer().decode(value);
 
-  static List<ElementTypeEnum> listFromJson(
+  static List<ElementTypeEnum?>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json is List && json.isNotEmpty
           ? json
@@ -120,7 +120,7 @@ class ElementTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  ElementTypeEnum decode(dynamic data, {bool allowNull}) {
+  ElementTypeEnum? decode(dynamic data, {bool? allowNull}) {
     if (data != null) {
       switch (data.toString()) {
         case r'document':
@@ -147,5 +147,5 @@ class ElementTypeEnumTypeTransformer {
   }
 
   /// Singleton [ElementTypeEnumTypeTransformer] instance.
-  static ElementTypeEnumTypeTransformer _instance;
+  static ElementTypeEnumTypeTransformer? _instance;
 }

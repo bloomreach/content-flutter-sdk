@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -26,36 +26,36 @@ class Pagination {
     this.enabled,
     this.links = const {},
     this.meta,
-    @required this.type,
+    required this.type,
   });
 
-  List<Pointer> items;
+  List<Pointer?>? items;
 
-  int offset;
+  int? offset;
 
-  int total;
+  int? total;
 
-  int size;
+  int? size;
 
-  PaginationPage first;
+  PaginationPage? first;
 
-  PaginationPage current;
+  PaginationPage? current;
 
-  PaginationPage previous;
+  PaginationPage? previous;
 
-  PaginationPage next;
+  PaginationPage? next;
 
-  PaginationPage last;
+  PaginationPage? last;
 
-  List<PaginationPage> pages;
+  List<PaginationPage?>? pages;
 
-  bool enabled;
+  bool? enabled;
 
-  Map<String, Link> links;
+  Map<String, Link>? links;
 
-  ComponentMeta meta;
+  ComponentMeta? meta;
 
-  PaginationTypeEnum type;
+  PaginationTypeEnum? type;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Pagination &&
@@ -143,7 +143,7 @@ class Pagination {
   /// Returns a new [Pagination] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Pagination fromJson(dynamic value) {
+  static Pagination? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Pagination(
@@ -166,13 +166,13 @@ class Pagination {
     return null;
   }
 
-  static List<Pagination> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<Pagination?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(Pagination.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <Pagination>[];
 
-  static Map<String, Pagination> mapFromJson(dynamic json) {
-    final map = <String, Pagination>{};
+  static Map<String, Pagination?> mapFromJson(dynamic json) {
+    final map = <String, Pagination?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -182,8 +182,8 @@ class Pagination {
   }
 
   // maps a json object with a list of Pagination-objects as value to a dart map
-  static Map<String, List<Pagination>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<Pagination>>{};
+  static Map<String, List<Pagination?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<Pagination?>?> map = <String, List<Pagination>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -231,10 +231,10 @@ class PaginationTypeEnum {
     imageset,
   ];
 
-  static PaginationTypeEnum fromJson(dynamic value) =>
+  static PaginationTypeEnum? fromJson(dynamic value) =>
     PaginationTypeEnumTypeTransformer().decode(value);
 
-  static List<PaginationTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<PaginationTypeEnum?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(PaginationTypeEnum.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <PaginationTypeEnum>[];
@@ -257,7 +257,7 @@ class PaginationTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  PaginationTypeEnum decode(dynamic data, {bool allowNull}) {
+  PaginationTypeEnum? decode(dynamic data, {bool? allowNull}) {
     if (data != null) {
       switch (data.toString()) {
         case r'document': return PaginationTypeEnum.document;
@@ -277,7 +277,7 @@ class PaginationTypeEnumTypeTransformer {
   }
 
   /// Singleton [PaginationTypeEnumTypeTransformer] instance.
-  static PaginationTypeEnumTypeTransformer _instance;
+  static PaginationTypeEnumTypeTransformer? _instance;
 }
 
 

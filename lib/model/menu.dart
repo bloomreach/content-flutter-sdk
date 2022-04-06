@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -16,16 +16,16 @@ class Menu {
     this.data = const {},
     this.links = const {},
     this.meta,
-    @required this.type,
+    required this.type,
   });
 
-  Map<String, Object> data;
+  Map<String, Object>? data;
 
-  Map<String, Link> links;
+  Map<String, Link>? links;
 
-  ComponentMeta meta;
+  ComponentMeta? meta;
 
-  MenuTypeEnum type;
+  MenuTypeEnum? type;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is Menu &&
@@ -63,7 +63,7 @@ class Menu {
   /// Returns a new [Menu] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Menu fromJson(dynamic value) {
+  static Menu? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Menu(
@@ -76,13 +76,13 @@ class Menu {
     return null;
   }
 
-  static List<Menu> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<Menu?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(Menu.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <Menu>[];
 
-  static Map<String, Menu> mapFromJson(dynamic json) {
-    final map = <String, Menu>{};
+  static Map<String, Menu?> mapFromJson(dynamic json) {
+    final map = <String, Menu?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -92,8 +92,8 @@ class Menu {
   }
 
   // maps a json object with a list of Menu-objects as value to a dart map
-  static Map<String, List<Menu>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<Menu>>{};
+  static Map<String, List<Menu?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<Menu?>?> map = <String, List<Menu>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -141,10 +141,10 @@ class MenuTypeEnum {
     imageset,
   ];
 
-  static MenuTypeEnum fromJson(dynamic value) =>
+  static MenuTypeEnum? fromJson(dynamic value) =>
     MenuTypeEnumTypeTransformer().decode(value);
 
-  static List<MenuTypeEnum> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<MenuTypeEnum?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(MenuTypeEnum.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <MenuTypeEnum>[];
@@ -167,7 +167,7 @@ class MenuTypeEnumTypeTransformer {
   ///
   /// The [allowNull] is very handy when an API changes and a new enum value is added or removed,
   /// and users are still using an old app with the old code.
-  MenuTypeEnum decode(dynamic data, {bool allowNull}) {
+  MenuTypeEnum? decode(dynamic data, {bool? allowNull}) {
     if (data != null) {
       switch (data.toString()) {
         case r'document': return MenuTypeEnum.document;
@@ -187,7 +187,7 @@ class MenuTypeEnumTypeTransformer {
   }
 
   /// Singleton [MenuTypeEnumTypeTransformer] instance.
-  static MenuTypeEnumTypeTransformer _instance;
+  static MenuTypeEnumTypeTransformer? _instance;
 }
 
 

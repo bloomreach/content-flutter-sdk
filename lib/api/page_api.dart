@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,7 +12,7 @@ part of pda.content.bloomreach;
 
 
 class PageApi {
-  PageApi([ApiClient apiClient]) : apiClient = apiClient ?? defaultApiClient;
+  PageApi([ApiClient? apiClient]) : apiClient = apiClient ?? defaultApiClient;
 
   final ApiClient apiClient;
 
@@ -40,7 +40,7 @@ class PageApi {
       .replaceAll('{channel_id}', channelId);
 
     // ignore: prefer_final_locals
-    Object postBody;
+    Object? postBody;
 
     final queryParams = <QueryParam>[];
     final headerParams = <String, String>{};
@@ -72,15 +72,15 @@ class PageApi {
   Future<Page> getPage(String channelId, String path) async {
     final response = await getPageWithHttpInfo(path, channelId);
     if (response.statusCode >= HttpStatus.badRequest) {
-      throw ApiException(response.statusCode, await _decodeBodyBytes(response));
+      throw ApiException(response.statusCode, await _decodeBodyBytes(response) as String);
     }
     // When a remote server returns no body with a status of 204, we shall not decode it.
     // At the time of writing this, `dart:convert` will throw an "Unexpected end of input"
     // FormatException when trying to decode an empty string.
     if (response.body != null && response.statusCode != HttpStatus.noContent) {
-      return await apiClient.deserializeAsync(await _decodeBodyBytes(response), 'Page',) as Page;
+      return await apiClient.deserializeAsync(await _decodeBodyBytes(response) as String, 'Page',) as Page;
     
     }
-    return Future<Page>.value();
+    return Future<Page>.value() as Future<Page>;
   }
 }

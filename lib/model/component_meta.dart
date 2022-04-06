@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,9 +17,9 @@ class ComponentMeta {
     this.paramsInfo = const {},
   });
 
-  Map<String, String> params;
+  Map<String, String>? params;
 
-  Map<String, String> paramsInfo;
+  Map<String, String>? paramsInfo;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is ComponentMeta &&
@@ -49,7 +49,7 @@ class ComponentMeta {
   /// Returns a new [ComponentMeta] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ComponentMeta fromJson(dynamic value) {
+  static ComponentMeta? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return ComponentMeta(
@@ -60,13 +60,13 @@ class ComponentMeta {
     return null;
   }
 
-  static List<ComponentMeta> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<ComponentMeta?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(ComponentMeta.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <ComponentMeta>[];
 
-  static Map<String, ComponentMeta> mapFromJson(dynamic json) {
-    final map = <String, ComponentMeta>{};
+  static Map<String, ComponentMeta?> mapFromJson(dynamic json) {
+    final map = <String, ComponentMeta?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -76,8 +76,8 @@ class ComponentMeta {
   }
 
   // maps a json object with a list of ComponentMeta-objects as value to a dart map
-  static Map<String, List<ComponentMeta>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<ComponentMeta>>{};
+  static Map<String, List<ComponentMeta?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<ComponentMeta?>?> map = <String, List<ComponentMeta>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

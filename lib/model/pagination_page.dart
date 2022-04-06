@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -17,9 +17,9 @@ class PaginationPage {
     this.links = const {},
   });
 
-  int number;
+  int? number;
 
-  Map<String, Link> links;
+  Map<String, Link>? links;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is PaginationPage &&
@@ -49,7 +49,7 @@ class PaginationPage {
   /// Returns a new [PaginationPage] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static PaginationPage fromJson(dynamic value) {
+  static PaginationPage? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return PaginationPage(
@@ -60,13 +60,13 @@ class PaginationPage {
     return null;
   }
 
-  static List<PaginationPage> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<PaginationPage?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(PaginationPage.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <PaginationPage>[];
 
-  static Map<String, PaginationPage> mapFromJson(dynamic json) {
-    final map = <String, PaginationPage>{};
+  static Map<String, PaginationPage?> mapFromJson(dynamic json) {
+    final map = <String, PaginationPage?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -76,8 +76,8 @@ class PaginationPage {
   }
 
   // maps a json object with a list of PaginationPage-objects as value to a dart map
-  static Map<String, List<PaginationPage>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<PaginationPage>>{};
+  static Map<String, List<PaginationPage?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<PaginationPage?>?> map = <String, List<PaginationPage>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

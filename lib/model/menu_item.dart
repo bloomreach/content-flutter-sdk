@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -24,23 +24,23 @@ class MenuItem {
     this.links = const {},
   });
 
-  int depth;
+  int? depth;
 
-  bool repositoryBased;
+  bool? repositoryBased;
 
-  Map<String, String> properties;
+  Map<String, String>? properties;
 
-  String name;
+  String? name;
 
-  List<MenuItem> childMenuItems;
+  List<MenuItem?>? childMenuItems;
 
-  bool expanded;
+  bool? expanded;
 
-  bool selected;
+  bool? selected;
 
-  Map<String, String> parameters;
+  Map<String, String>? parameters;
 
-  Map<String, Link> links;
+  Map<String, Link>? links;
 
   @override
   bool operator ==(Object other) => identical(this, other) || other is MenuItem &&
@@ -105,7 +105,7 @@ class MenuItem {
   /// Returns a new [MenuItem] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MenuItem fromJson(dynamic value) {
+  static MenuItem? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return MenuItem(
@@ -123,13 +123,13 @@ class MenuItem {
     return null;
   }
 
-  static List<MenuItem> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<MenuItem?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(MenuItem.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <MenuItem>[];
 
-  static Map<String, MenuItem> mapFromJson(dynamic json) {
-    final map = <String, MenuItem>{};
+  static Map<String, MenuItem?> mapFromJson(dynamic json) {
+    final map = <String, MenuItem?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -139,8 +139,8 @@ class MenuItem {
   }
 
   // maps a json object with a list of MenuItem-objects as value to a dart map
-  static Map<String, List<MenuItem>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<MenuItem>>{};
+  static Map<String, List<MenuItem?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<MenuItem?>?> map = <String, List<MenuItem>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -41,7 +41,7 @@ class Data {
   /// Returns a new [Data] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Data fromJson(dynamic value) {
+  static Data? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Data(
@@ -51,13 +51,13 @@ class Data {
     return null;
   }
 
-  static List<Data> listFromJson(dynamic json, {bool emptyIsNull, bool growable,}) =>
+  static List<Data?>? listFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) =>
     json is List && json.isNotEmpty
       ? json.map(Data.fromJson).toList(growable: true == growable)
       : true == emptyIsNull ? null : <Data>[];
 
-  static Map<String, Data> mapFromJson(dynamic json) {
-    final map = <String, Data>{};
+  static Map<String, Data?> mapFromJson(dynamic json) {
+    final map = <String, Data?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()
@@ -67,8 +67,8 @@ class Data {
   }
 
   // maps a json object with a list of Data-objects as value to a dart map
-  static Map<String, List<Data>> mapListFromJson(dynamic json, {bool emptyIsNull, bool growable,}) {
-    final map = <String, List<Data>>{};
+  static Map<String, List<Data?>?> mapListFromJson(dynamic json, {bool? emptyIsNull, bool? growable,}) {
+    final Map<String, List<Data?>?> map = <String, List<Data>?>{};
     if (json is Map && json.isNotEmpty) {
       json
         .cast<String, dynamic>()

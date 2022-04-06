@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -46,7 +46,7 @@ class ApiClient {
   /// or deleted.
   Map<String, Authentication> get authentications => Map.unmodifiable(_authentications);
 
-  T getAuthentication<T extends Authentication>(String name) {
+  T? getAuthentication<T extends Authentication>(String name) {
     final authentication = _authentications[name];
     return authentication is T ? authentication : null;
   }
@@ -57,10 +57,10 @@ class ApiClient {
     String path,
     String method,
     List<QueryParam> queryParams,
-    Object body,
+    Object? body,
     Map<String, String> headerParams,
     Map<String, String> formParams,
-    String nullableContentType,
+    String? nullableContentType,
     List<String> authNames,
   ) async {
     _updateParamsForAuth(authNames, queryParams, headerParams);
@@ -139,12 +139,12 @@ class ApiClient {
     throw ApiException(HttpStatus.badRequest, 'Invalid HTTP operation: $method $path',);
   }
 
-  Future<dynamic> deserializeAsync(String json, String targetType, {bool growable}) async =>
+  Future<dynamic> deserializeAsync(String json, String targetType, {bool? growable}) async =>
     // ignore: deprecated_member_use_from_same_package
     deserialize(json, targetType, growable: growable);
 
   @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use deserializeAsync() instead.')
-  dynamic deserialize(String json, String targetType, {bool growable}) {
+  dynamic deserialize(String json, String targetType, {bool? growable}) {
     // Remove all spaces. Necessary for regular expressions as well.
     targetType = targetType.replaceAll(' ', ''); // ignore: parameter_assignments
 
@@ -155,10 +155,10 @@ class ApiClient {
   }
 
   // ignore: deprecated_member_use_from_same_package
-  Future<String> serializeAsync(Object value) async => serialize(value);
+  Future<String> serializeAsync(Object? value) async => serialize(value);
 
   @Deprecated('Scheduled for removal in OpenAPI Generator 6.x. Use serializeAsync() instead.')
-  String serialize(Object value) => value == null ? '' : json.encode(value);
+  String serialize(Object? value) => value == null ? '' : json.encode(value);
 
   /// Update query and header parameters based on authentication settings.
   /// @param authNames The authentications to apply
@@ -176,7 +176,7 @@ class ApiClient {
     }
   }
 
-  static dynamic _deserialize(dynamic value, String targetType, {bool growable}) {
+  static dynamic _deserialize(dynamic value, String? targetType, {bool? growable}) {
     try {
       switch (targetType) {
         case 'String':
@@ -236,21 +236,21 @@ class ApiClient {
         case 'Pointer':
           return Pointer.fromJson(value);
         default:
-          Match match;
-          if (value is List && (match = _regList.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
+          Match? match;
+          if (value is List && (match = _regList.firstMatch(targetType!)) != null) {
+            targetType = match![1]; // ignore: parameter_assignments
             return value
               .map<dynamic>((dynamic v) => _deserialize(v, targetType, growable: growable))
-              .toList(growable: growable);
+              .toList(growable: growable!);
           }
-          if (value is Set && (match = _regSet.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
+          if (value is Set && (match = _regSet.firstMatch(targetType!)) != null) {
+            targetType = match![1]; // ignore: parameter_assignments
             return value
               .map<dynamic>((dynamic v) => _deserialize(v, targetType, growable: growable))
               .toSet();
           }
-          if (value is Map && (match = _regMap.firstMatch(targetType)) != null) {
-            targetType = match[1]; // ignore: parameter_assignments
+          if (value is Map && (match = _regMap.firstMatch(targetType!)) != null) {
+            targetType = match![1]; // ignore: parameter_assignments
             return Map<String, dynamic>.fromIterables(
               value.keys.cast<String>(),
               value.values.map<dynamic>((dynamic v) => _deserialize(v, targetType, growable: growable)),
@@ -267,8 +267,8 @@ class ApiClient {
 /// Primarily intended for use in an isolate.
 class DeserializationMessage {
   const DeserializationMessage({
-    @required this.json,
-    @required this.targetType,
+    required this.json,
+    required this.targetType,
     this.growable,
   });
 
@@ -279,7 +279,7 @@ class DeserializationMessage {
   final String targetType;
 
   /// Whether to make deserialized lists or maps growable.
-  final bool growable;
+  final bool? growable;
 }
 
 /// Primarily intended for use in an isolate.

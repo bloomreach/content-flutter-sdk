@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -21,49 +21,49 @@ class Page {
     this.page = const {},
   });
 
-  PageMeta meta;
+  PageMeta? meta;
 
-  Channel channel;
+  Channel? channel;
 
-  Map<String, Link> links;
+  Map<String, Link?> links;
 
-  Pointer root;
+  Pointer? root;
 
-  Pointer document;
+  Pointer? document;
 
-  Map<String, Element> page;
+  Map<String, Element?> page;
 
-  Document getDocument() {
-    return page[document?.getReference()];
+  Document? getDocument() {
+    return page[document?.getReference()!] as Document?;
   }
 
-  Element getRootComponent() {
-    return page[root?.getReference()];
+  Element? getRootComponent() {
+    return page[root?.getReference()!];
   }
 
-  AbstractComponent getComponentByPath(String path) {
-    return getComponent(getRootComponent(), path);
+  AbstractComponent? getComponentByPath(String path) {
+    return getComponent(getRootComponent() as Component?, path);
   }
 
-  AbstractComponent getComponent(
-      Component currentComponent, String currentPath) {
+  AbstractComponent? getComponent(
+      Component? currentComponent, String currentPath) {
     var paths = currentPath.split('/');
     if (paths.length > 1) {
-      Component aComponent = currentComponent.children
-          .map((pointer) => page[pointer?.getReference()])
-          .where((element) => element.type == ElementTypeEnum.component)
-          .map((element) => element as Component)
-          .where((component) => component.name == paths[0])
+      Component? aComponent = currentComponent!.children!
+          .map((pointer) => page[pointer?.getReference()!])
+          .where((element) => element!.type == ElementTypeEnum.component)
+          .map((element) => element as Component?)
+          .where((component) => component!.name == paths[0])
           .first;
       return getComponent(aComponent, paths.sublist(1).join('/'));
     } else {
-      return currentComponent.children
-          .map((pointer) => page[pointer?.getReference()])
+      return currentComponent!.children!
+          .map((pointer) => page[pointer?.getReference()!])
           .where((element) =>
-              element.type == ElementTypeEnum.component ||
+              element!.type == ElementTypeEnum.component ||
               element.type == ElementTypeEnum.container)
-          .map((element) => element as AbstractComponent)
-          .where((abstractComponent) => abstractComponent.name == paths[0])
+          .map((element) => element as AbstractComponent?)
+          .where((abstractComponent) => abstractComponent!.name == paths[0])
           .first;
     }
   }
@@ -119,7 +119,7 @@ class Page {
   /// Returns a new [Page] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static Page fromJson(dynamic value) {
+  static Page? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return Page(
@@ -134,10 +134,10 @@ class Page {
     return null;
   }
 
-  static List<Page> listFromJson(
+  static List<Page?>? listFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) =>
       json is List && json.isNotEmpty
           ? json.map(Page.fromJson).toList(growable: true == growable)
@@ -145,8 +145,8 @@ class Page {
               ? null
               : <Page>[];
 
-  static Map<String, Page> mapFromJson(dynamic json) {
-    final map = <String, Page>{};
+  static Map<String, Page?> mapFromJson(dynamic json) {
+    final map = <String, Page?>{};
     if (json is Map && json.isNotEmpty) {
       json
           .cast<String, dynamic>()
@@ -156,12 +156,12 @@ class Page {
   }
 
   // maps a json object with a list of Page-objects as value to a dart map
-  static Map<String, List<Page>> mapListFromJson(
+  static Map<String, List<Page?>?> mapListFromJson(
     dynamic json, {
-    bool emptyIsNull,
-    bool growable,
+    bool? emptyIsNull,
+    bool? growable,
   }) {
-    final map = <String, List<Page>>{};
+    final Map<String, List<Page?>?> map = <String, List<Page>?>{};
     if (json is Map && json.isNotEmpty) {
       json.cast<String, dynamic>().forEach((key, dynamic value) {
         map[key] = Page.listFromJson(

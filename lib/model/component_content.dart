@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-// @dart=2.0
+
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -14,15 +14,15 @@ class ComponentContent extends Element {
   /// Returns a new [ComponentContent] instance.
   ComponentContent({
     this.data,
-    Map<String, Link> links = const {},
-    ComponentMeta meta,
-    @required ElementTypeEnum type})
+    Map<String, Link?> links = const {},
+    ComponentMeta? meta,
+    required ElementTypeEnum? type})
       : super(type: type, links: links, meta: meta);
 
-  Map<String, dynamic> data;
+  Map<String, dynamic>? data;
 
   dynamic getData(String key) {
-    return data[key];
+    return data![key];
   }
 
 
@@ -33,7 +33,7 @@ class ComponentContent extends Element {
   /// Returns a new [ComponentContent] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static ComponentContent fromJson(dynamic value) {
+  static ComponentContent? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return ComponentContent(
