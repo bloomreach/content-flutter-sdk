@@ -16,7 +16,7 @@ Future<void> main() async {
   final instance =
       PageApi(ApiClient(basePath: 'https://sandbox-sales02.bloomreach.io'));
 
-  final Page page = await instance.getPage('bauhaus-mobile', '') ;
+  final Page page = await instance.getPage('brxsaas', '') ;
 
   print(page.meta?.branch);
 
