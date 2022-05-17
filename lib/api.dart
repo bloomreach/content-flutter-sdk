@@ -16,6 +16,7 @@ import 'dart:io';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
+import 'package:flutter/cupertino.dart';
 
 part 'api_client.dart';
 part 'api_helper.dart';
@@ -52,6 +53,8 @@ part 'model/page_meta.dart';
 part 'model/pagination.dart';
 part 'model/pagination_page.dart';
 part 'model/pointer.dart';
+part 'widget/BrComponentStatelessWidget.dart';
+part 'widget/BrComponentWidget.dart';
 
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};

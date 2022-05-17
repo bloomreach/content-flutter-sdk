@@ -4,3 +4,4 @@
 - 0.0.3 : Type Safety Assesement
 - 0.0.4 : Minor improvements
 - 0.0.5 : Documentation update
+- 0.0.6 : Adding flutter specific helpers

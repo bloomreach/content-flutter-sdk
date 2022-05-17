@@ -16,7 +16,7 @@ class ComponentContent extends Element {
     this.data,
     Map<String, Link?> links = const {},
     ComponentMeta? meta,
-    required ElementTypeEnum? type})
+    ElementTypeEnum? type})
       : super(type: type, links: links, meta: meta);
 
   Map<String, dynamic>? data;
