@@ -53,8 +53,9 @@ part 'model/page_meta.dart';
 part 'model/pagination.dart';
 part 'model/pagination_page.dart';
 part 'model/pointer.dart';
-part 'widget/BrComponentStatelessWidget.dart';
-part 'widget/BrComponentWidget.dart';
+part 'widget/component_stateless_widget.dart';
+part 'widget/component_widget.dart';
+part 'widget/component_list_view.dart';
 
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};
