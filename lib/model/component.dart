@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
@@ -31,7 +30,17 @@ class Component extends AbstractComponent {
 
   List<Pointer?>? children;
 
-  Map<String, Pointer>? models;
+  Map<String, dynamic>? models;
+
+  Menu? getMenu(Page page) {
+    if (hasMenu()) {
+      return page.page[Pointer.fromJson(models?['menu'])?.getReference()] as Menu?;
+    }
+  }
+
+  bool hasMenu() {
+    return models!.containsKey('menu');
+  }
 
   @override
   String toString() =>
@@ -45,7 +54,7 @@ class Component extends AbstractComponent {
       final json = value.cast<String, dynamic>();
       return Component(
         children: Pointer.listFromJson(json[r'children']),
-        models: mapValueOfType<Map<String, Pointer>>(json, r'models'),
+        models: mapValueOfType<Map<String, dynamic>>(json, r'models'),
         links: Links.mapFromJson(json[r'links']),
         meta: ComponentMeta.fromJson(json[r'meta']),
         id: mapValueOfType<String>(json, r'id'),

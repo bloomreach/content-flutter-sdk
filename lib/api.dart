@@ -47,6 +47,7 @@ part 'model/link.dart';
 part 'model/links.dart';
 part 'model/elements.dart';
 part 'model/menu.dart';
+part 'model/menu_data.dart';
 part 'model/menu_item.dart';
 part 'model/page.dart';
 part 'model/page_meta.dart';

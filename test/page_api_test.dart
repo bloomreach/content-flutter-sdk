@@ -39,7 +39,6 @@ Future<void> main() async {
       var data = containerItem.getContent(page)?.data;
       CarouselData carouselData = new CarouselData.fromJson(data);
       print(carouselData);
-
     }
   });
 
@@ -49,4 +48,12 @@ Future<void> main() async {
       .forEach((element) {
     print(element!.getImageLink());
   });
+
+  Component menu = page.getComponentByPath('menu');
+  if (menu.hasMenu()) {
+    menu
+        .getMenu(page)
+        ?.getSiteMenuItems()
+        ?.forEach((item) => print(item.name.toString() + '-' + item.getLink().toString()));
+  }
 }
