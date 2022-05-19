@@ -9,3 +9,5 @@
 - 0.0.8 : menu support
 - 0.0.9 : widget container support
 - 0.1.0 : support for pagination
+- 0.1.1 : navigate to page available from widgets
+- 0.1.2 : navigate to page available from widgets

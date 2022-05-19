@@ -4,8 +4,9 @@ abstract class ComponentStatefulWidget<T extends AbstractComponent,
     E extends Page> extends StatefulWidget {
   final T item;
   final E page;
+  void Function(String newPath)? setPage;
 
-  const ComponentStatefulWidget(Key? key, this.item, this.page) : super(key: key);
+  ComponentStatefulWidget(Key? key, this.item, this.page, [this.setPage]) : super(key: key);
 
   ComponentContent? getContent() {
     return item is ContainerItem
