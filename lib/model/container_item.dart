@@ -12,27 +12,26 @@ part of pda.content.bloomreach;
 
 class ContainerItem extends AbstractComponent {
   /// Returns a new [ContainerItem] instance.
-  ContainerItem(
-      {this.ctype,
-      this.models = const {},
-      this.content,
-      String? id,
-      String? label,
-      String? name,
-      Map<String, Link?> links = const {},
-      ComponentMeta? meta,
-      required ElementTypeEnum? type})
+  ContainerItem({required this.ctype,
+    this.models = const {},
+    this.content,
+    String? id,
+    String? label,
+    String? name,
+    Map<String, Link?> links = const {},
+    ComponentMeta? meta,
+    required ElementTypeEnum? type})
       : super(
-            type: type,
-            links: links,
-            meta: meta,
-            id: id,
-            label: label,
-            name: name);
+      type: type,
+      links: links,
+      meta: meta,
+      id: id,
+      label: label,
+      name: name);
 
-  String? ctype;
+  String ctype;
 
-  Map<String, Pointer>? models;
+  Map<String, dynamic>? models;
 
   Pointer? content;
 
@@ -47,6 +46,27 @@ class ContainerItem extends AbstractComponent {
     return null;
   }
 
+  bool hasPagination() {
+    return models?['pagination'] != null;
+  }
+
+  Pagination? getPagination(Page page) {
+    if (hasPagination()) {
+      return page.page[Pointer.fromJson(models?['pagination'])?.getReference()] as Pagination?;
+    }
+    return null;
+  }
+
+  Menu? getMenu(Page page) {
+    if (hasMenu()) {
+      return page.page[Pointer.fromJson(models?['menu'])?.getReference()] as Menu?;
+    }
+  }
+
+  bool hasMenu() {
+    return models!.containsKey('menu');
+  }
+
   @override
   String toString() =>
       'ContainerItem[ctype=$ctype, models=$models, content=$content, links=$links, meta=$meta, type=$type]';
@@ -58,8 +78,8 @@ class ContainerItem extends AbstractComponent {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return ContainerItem(
-        ctype: mapValueOfType<String>(json, r'ctype'),
-        models: mapValueOfType<Map<String, Pointer>>(json, r'models'),
+        ctype: mapValueOfType<String>(json, r'ctype') ?? '',
+        models: mapValueOfType<Map<String, dynamic>>(json, r'models'),
         content: Pointer.fromJson(json[r'content']),
         meta: ComponentMeta.fromJson(json[r'meta']),
         links: Links.mapFromJson(json[r'links']),
@@ -69,6 +89,6 @@ class ContainerItem extends AbstractComponent {
         type: ElementTypeEnum.fromJson(json[r'type']),
       );
     }
-    throw Exception('value is not a map');
+    throw Exception('container item value is not a map');
   }
 }

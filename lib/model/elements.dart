@@ -44,6 +44,9 @@ class Elements {
           case 'menu':
             map[key] = Menu.fromJson(value);
             break;
+          case 'pagination':
+            map[key] = Pagination.fromJson(value);
+            break;
           default:
             map[key] = Element.fromJson(value);
         }

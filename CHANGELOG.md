@@ -7,3 +7,5 @@
 - 0.0.6 : Adding flutter specific helpers
 - 0.0.7 : helper classes
 - 0.0.8 : menu support
+- 0.0.9 : widget container support
+- 0.1.0 : support for pagination

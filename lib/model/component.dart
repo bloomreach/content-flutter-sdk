@@ -42,6 +42,17 @@ class Component extends AbstractComponent {
     return models!.containsKey('menu');
   }
 
+  bool hasPagination() {
+    return models?['pagination'] != null;
+  }
+
+  Pagination? getPagination(Page page) {
+    if (hasPagination()) {
+      return page.page[models?['pagination']!] as Pagination?;
+    }
+    return null;
+  }
+
   @override
   String toString() =>
       'Component[children=$children, models=$models, links=$links, meta=$meta, type=$type]';

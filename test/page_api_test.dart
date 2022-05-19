@@ -17,7 +17,7 @@ Future<void> main() async {
   final instance =
       PageApi(ApiClient(basePath: 'https://sandbox-sales02.bloomreach.io'));
 
-  final Page page = await instance.getPage('mobile-native-demo', 'test2');
+  final Page page = await instance.getPage('mobile-native-demo', '');
 
   print(page.meta.branch);
 
@@ -39,6 +39,11 @@ Future<void> main() async {
       var data = containerItem.getContent(page)?.data;
       CarouselData carouselData = new CarouselData.fromJson(data);
       print(carouselData);
+    }
+    if (containerItem.ctype == "List") {
+      var pagination = containerItem.getPagination(page);
+      var items = pagination?.getItems(page);
+      print(items);
     }
   });
 

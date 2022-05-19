@@ -1,10 +1,10 @@
 part of pda.content.bloomreach;
 
-abstract class ComponentListView extends StatelessWidget {
-  List<ContainerItem> items;
-  Page page;
+abstract class ComponentsListView extends StatelessWidget {
+  final List<ContainerItem> items;
+  final Page page;
 
-  ComponentListView(this.items, this.page);
+  ComponentsListView(this.items, this.page);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ abstract class ComponentListView extends StatelessWidget {
         itemCount: items.length,
         itemBuilder: (context, index) {
           final item = items[index];
-          return instantiateWidgetByName(item.ctype as String, item, page);
+          return instantiateWidgetByName(item.ctype, item, page);
         });
   }
 

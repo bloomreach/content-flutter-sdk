@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
@@ -23,7 +22,6 @@ class Element {
   ComponentMeta? meta;
 
   ElementTypeEnum? type;
-
 
   @override
   String toString() => 'Element[links=$links, meta=$meta, type=$type]';
@@ -73,6 +71,8 @@ class ElementTypeEnum {
   static const containerItem = ElementTypeEnum._(r'container-item');
   static const asset = ElementTypeEnum._(r'asset');
   static const imageset = ElementTypeEnum._(r'imageset');
+  static const pagination = ElementTypeEnum._(r'pagination');
+  static const componentcontent = ElementTypeEnum._(r'componentcontent');
 
   /// List of all possible values in this [enum][ElementTypeEnum].
   static const values = <ElementTypeEnum>[
@@ -83,6 +83,8 @@ class ElementTypeEnum {
     containerItem,
     asset,
     imageset,
+    pagination,
+    componentcontent,
   ];
 
   static ElementTypeEnum? fromJson(dynamic value) =>
@@ -125,6 +127,10 @@ class ElementTypeEnumTypeTransformer {
       switch (data.toString()) {
         case r'document':
           return ElementTypeEnum.document;
+        case r'pagination':
+          return ElementTypeEnum.pagination;
+        case r'componentcontent':
+          return ElementTypeEnum.componentcontent;
         case r'component':
           return ElementTypeEnum.component;
         case r'menu':

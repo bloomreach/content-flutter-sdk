@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
@@ -10,18 +9,15 @@
 
 part of pda.content.bloomreach;
 
-
-
 class MenuData {
   MenuData({
-    this.name,
-    this.siteMenuItems,
+    required this.name,
+    required this.siteMenuItems,
   });
 
-  String? name;
+  String name;
 
-  List<MenuItem>? siteMenuItems;
-
+  List<MenuItem> siteMenuItems;
 
   @override
   String toString() {
@@ -31,17 +27,15 @@ class MenuData {
   /// Returns a new [ImageData] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static MenuData? fromJson(dynamic value) {
+  static MenuData fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
       return MenuData(
-        name: mapValueOfType<String>(json, r'name'),
-        siteMenuItems: MenuItem.listFromJson(json[r'siteMenuItems']),
+        name: mapValueOfType<String>(json, r'name') ?? '',
+        siteMenuItems:
+            MenuItem.listFromJson(json[r'siteMenuItems']) ?? <MenuItem>[],
       );
     }
-    return null;
+    throw Exception('menu data value is not a map');
   }
-
-
 }
-

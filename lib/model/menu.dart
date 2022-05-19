@@ -11,22 +11,21 @@ part of pda.content.bloomreach;
 
 class Menu extends Element {
   Menu(
-      {this.data,
+      {required this.data,
       Map<String, Link?> links = const {},
       ComponentMeta? meta,
       required ElementTypeEnum? type})
       : super(type: type, links: links, meta: meta);
 
-  MenuData? data;
-
+  MenuData data;
 
   @override
   String toString() {
     return 'Menu{data: $data}';
   }
 
-  List<MenuItem>? getSiteMenuItems(){
-    return data?.siteMenuItems;
+  List<MenuItem> getSiteMenuItems(){
+    return data.siteMenuItems;
   }
 
   /// Returns a new [Menu] instance and imports its values from
@@ -42,6 +41,6 @@ class Menu extends Element {
         type: ElementTypeEnum.fromJson(json[r'type']),
       );
     }
-    throw Exception('value is not a map');
+    throw Exception('menu value is not a map');
   }
 }
