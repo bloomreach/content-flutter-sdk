@@ -2,7 +2,6 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
-
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
 // ignore_for_file: constant_identifier_names
@@ -33,6 +32,10 @@ class Page {
 
   Map<String, Element> page;
 
+  bool isPreview() {
+    return meta.preview;
+  }
+
   Document? getDocument() {
     return page[document?.getReference()!] as Document?;
   }
@@ -40,10 +43,6 @@ class Page {
   Component getRootComponent() {
     return page[root?.getReference()!] as Component;
   }
-
-  // AbstractComponent getComponentByPath(String path) {
-  //   return getComponent(getRootComponent(), path);
-  // }
 
   T getComponentByPath<T extends AbstractComponent>(String path) {
     return getComponent(getRootComponent(), path) as T;
@@ -93,5 +92,4 @@ class Page {
     }
     throw ArgumentError('Value is not a map');
   }
-
 }

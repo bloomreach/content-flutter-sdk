@@ -1,7 +1,10 @@
 part of pda.content.bloomreach;
 
 class MappedComponentsListView extends ComponentsListView {
-  final Map<String, dynamic Function(Page page, ContainerItem item, [void Function(String newPath)? setPage])> componentMapping;
+  final Map<
+      String,
+      dynamic Function(Page page, ContainerItem item,
+          [void Function(String newPath)? setPage])>? componentMapping;
 
   MappedComponentsListView(
       this.componentMapping, List<ContainerItem> items, Page page,
@@ -11,11 +14,17 @@ class MappedComponentsListView extends ComponentsListView {
   @override
   Widget instantiateWidgetByName(String ctype, ContainerItem item, Page page,
       [void Function(String newPath)? setPage]) {
-    return componentMapping[ctype]?.call(page, item, setPage) ??
-        ListTile(
-          title: Text(item.ctype),
-          subtitle: Text(
-              'component not defined in application, please update component mapping'),
-        );
+    return componentMapping?[ctype]?.call(page, item, setPage) ??
+        getUnmappedComponent(ctype, item, page);
+  }
+
+  Widget getUnmappedComponent(String ctype, ContainerItem item, Page page) {
+    return page.isPreview()
+        ? ListTile(
+            title: Text(item.ctype),
+            subtitle: Text(
+                'component not defined in application, please update component mapping'),
+          )
+        : SizedBox.shrink();
   }
 }

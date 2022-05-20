@@ -11,3 +11,8 @@
 - 0.1.0 : support for pagination
 - 0.1.1 : navigate to page available from widgets
 - 0.1.2 : navigate to page available from widgets
+- 0.1.3 : application wrapper
+- 0.1.4 : error don't use
+- 0.1.5 : error don't use
+- 0.1.5 : error don't use
+- 0.1.7 : application wrapper & backwards incompatible changes

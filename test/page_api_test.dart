@@ -21,6 +21,8 @@ Future<void> main() async {
 
   print(page.meta.branch);
 
+  print(page.isPreview());
+
   var document = page.getDocument();
 
   print('document:' + document.toString());
