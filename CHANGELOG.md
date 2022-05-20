@@ -14,5 +14,6 @@
 - 0.1.3 : application wrapper
 - 0.1.4 : error don't use
 - 0.1.5 : error don't use
-- 0.1.5 : error don't use
-- 0.1.7 : application wrapper & backwards incompatible changes
+- 0.1.6 : error don't use
+- 0.1.7 : error don't use
+- 0.1.8 : application wrapper & backwards incompatible changes

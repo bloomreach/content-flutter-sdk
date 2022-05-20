@@ -12,7 +12,7 @@ Dart 2.0 or later
 
 ## Getting Started with the API Client
 
-Please follow the [installation procedure](#installation--usage) and then run the following:
+Please follow the installation procedure and then run the following:
 
 ```dart
 import 'package:brcontent/api.dart';
@@ -38,7 +38,7 @@ try {
         print('-----------');
       }
     });
-} catch (e) {
+} catch (Exception e) {
     print('Exception when calling PageApi->getPage: $e\n');
 }
 
@@ -49,7 +49,7 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://<account_name>.bloomreach.io*
+All URIs are relative to *https://{account}.bloomreach.io*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
