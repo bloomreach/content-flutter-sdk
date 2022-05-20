@@ -1,7 +1,7 @@
 # changes
 - 0.0.1 : First version
-- 0.0.2 : Type Safety Migraton
-- 0.0.3 : Type Safety Assesement
+- 0.0.2 : Type Safety Migration
+- 0.0.3 : Type Safety Assessment
 - 0.0.4 : Minor improvements
 - 0.0.5 : Documentation update
 - 0.0.6 : Adding flutter specific helpers
@@ -17,3 +17,4 @@
 - 0.1.6 : error don't use
 - 0.1.7 : error don't use
 - 0.1.8 : application wrapper & backwards incompatible changes
+- 1.0.0 : release
