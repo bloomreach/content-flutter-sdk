@@ -43,6 +43,7 @@ try {
 }
 
 ```
+for more examples on the API client: https://github.com/bloomreach/content-flutter-sdk/blob/master/test/page_api_test.dart
 
 ## Getting Started with the Rendering SDK
 
