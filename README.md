@@ -45,7 +45,12 @@ try {
 ```
 
 ## Getting Started with the Rendering SDK
-..
+
+### Create a new flutter project
+
+### Install the brcontent dependency
+
+### Add the required components
 
 ## Documentation for API Endpoints
 
