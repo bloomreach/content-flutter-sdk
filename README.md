@@ -168,3 +168,7 @@ Class | Method | HTTP request | Description
 
 kenan.salic@bloomreach.com
 
+## Support
+
+This is an open source community driven project that is not support and maintained by Bloomreach engineering.
+
