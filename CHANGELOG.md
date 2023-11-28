@@ -18,3 +18,4 @@
 - 0.1.7 : error don't use
 - 0.1.8 : application wrapper & backwards incompatible changes
 - 1.0.0 : release
+- 2.0.0 : 2.0 release without the rendering SDK. Backward incompatible. (do not use this release yet)

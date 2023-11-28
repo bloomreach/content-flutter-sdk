@@ -2,16 +2,15 @@
 # AUTO-GENERATED FILE, DO NOT MODIFY!
 #
 name: 'brcontent'
-version: '1.0.0'
-description: 'Bloomreach Content Flutter SDK - Features a Dart Page Delivery API Client & a Flutter rendering SDK to attach data from the API the view'
+version: '2.0.0'
+description: 'Bloomreach Content Flutter SDK - Features a Dart Page Delivery API Client'
 homepage: 'https://github.com/bloomreach/content-flutter-sdk'
 environment:
-  sdk: '>=2.15.0 <3.0.0'
+  sdk: '>=3.2.0 <4.0.0'
 dependencies:
-  flutter:
-    sdk: flutter
-  http: '>=0.13.0 <0.14.0'
-  intl: '^0.17.0'
+  collection: '^1.17.0'
+  http: '^1.1.0'
+  intl: '^0.18.0'
   meta: '^1.1.8'
 
 dev_dependencies:

@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -12,18 +12,19 @@ part of pda.content.bloomreach;
 
 class ComponentContent extends Element {
   /// Returns a new [ComponentContent] instance.
-  ComponentContent({
-    this.data,
-    Map<String, Link?> links = const {},
-    ComponentMeta? meta,
-    ElementTypeEnum? type})
-      : super(type: type, links: links, meta: meta);
 
   Map<String, dynamic>? data;
 
   dynamic getData(String key) {
     return data![key];
   }
+
+  ComponentContent({
+    this.data,
+    Map<String, Link?> links = const {},
+    ComponentMeta? meta,
+    ElementTypeEnum? type})
+      : super(type: type, links: links, meta: meta);
 
 
   @override

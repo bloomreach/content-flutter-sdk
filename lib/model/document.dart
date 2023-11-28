@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -11,6 +11,13 @@
 part of pda.content.bloomreach;
 
 class Document extends Element {
+
+  Map<String, dynamic>? data;
+
+  dynamic getData(String key) {
+    return data![key];
+  }
+
   /// Returns a new [Document] instance.
   Document({
     this.data,
@@ -19,11 +26,6 @@ class Document extends Element {
     required ElementTypeEnum? type
   }):super(type: type, links: links,  meta: meta);
 
-  Map<String, dynamic>? data;
-
-  dynamic getData(String key) {
-    return data![key];
-  }
 
   @override
   String toString() =>

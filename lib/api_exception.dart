@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -22,9 +22,6 @@ class ApiException implements Exception {
 
   @override
   String toString() {
-    if (message == null) {
-      return 'ApiException';
-    }
     if (innerException == null) {
       return 'ApiException $code: $message';
     }

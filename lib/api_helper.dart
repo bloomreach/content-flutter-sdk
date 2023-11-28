@@ -1,7 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -29,14 +29,14 @@ Iterable<QueryParam> _convertParametersForCollectionFormat(
   final params = <QueryParam>[];
 
   // preconditions
-  if (name != null && name.isNotEmpty && value != null) {
+  if (name.isNotEmpty && value != null) {
     if (value is List) {
       if (collectionFormat == 'multi') {
         return value.map((dynamic v) => QueryParam(name, parameterToString(v)),);
       }
 
       // Default collection format is 'csv'.
-      if (collectionFormat == null || collectionFormat.isEmpty) {
+      if (collectionFormat.isEmpty) {
         // ignore: parameter_assignments
         collectionFormat = 'csv';
       }

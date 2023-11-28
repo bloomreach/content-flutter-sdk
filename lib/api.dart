@@ -1,6 +1,6 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
-
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -16,16 +16,11 @@ import 'dart:io';
 import 'package:http/http.dart';
 import 'package:intl/intl.dart';
 import 'package:meta/meta.dart';
-import 'package:flutter/material.dart';
+// import 'package:flutter/material.dart';
 
 part 'api_client.dart';
 part 'api_helper.dart';
 part 'api_exception.dart';
-part 'auth/authentication.dart';
-part 'auth/api_key_auth.dart';
-part 'auth/oauth.dart';
-part 'auth/http_basic_auth.dart';
-part 'auth/http_bearer_auth.dart';
 
 part 'api/page_api.dart';
 
@@ -54,13 +49,14 @@ part 'model/page_meta.dart';
 part 'model/pagination.dart';
 part 'model/pagination_page.dart';
 part 'model/pointer.dart';
-part 'widget/component_stateless_widget.dart';
-part 'widget/component_statefulwidget.dart';
-part 'widget/components_list_view.dart';
-part 'widget/mapped_components_list_view.dart';
-part 'widget/container_list_view.dart';
-part 'widget/application.dart';
-part 'widget/application_state.dart';
+// part 'widget/component_stateless_widget.dart';
+// part 'widget/context.dart';
+// part 'widget/component_statefulwidget.dart';
+// part 'widget/components_list_view.dart';
+// part 'widget/mapped_components_list_view.dart';
+// part 'widget/container_list_view.dart';
+// part 'widget/application.dart';
+// part 'widget/application_state.dart';
 
 
 const _delimiters = {'csv': ',', 'ssv': ' ', 'tsv': '\t', 'pipes': '|'};

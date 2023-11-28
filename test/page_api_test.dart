@@ -1,6 +1,7 @@
 //
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
+// @dart=2.12
 
 // ignore_for_file: unused_element, unused_import
 // ignore_for_file: always_put_required_named_parameters_first
@@ -8,7 +9,6 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:brcontent/api.dart';
-import 'package:test/test.dart';
 
 import 'CarouselData.dart';
 
@@ -18,10 +18,6 @@ Future<void> main() async {
       PageApi(ApiClient(basePath: 'https://sandbox-sales02.bloomreach.io'));
 
   final Page page = await instance.getPage('mobile-native-demo', '');
-
-  print(page.meta.branch);
-
-  print(page.isPreview());
 
   var document = page.getDocument();
 
@@ -58,9 +54,7 @@ Future<void> main() async {
 
   Component menu = page.getComponentByPath('menu');
   if (menu.hasMenu()) {
-    menu
-        .getMenu(page)
-        ?.getSiteMenuItems()
-        ?.forEach((item) => print(item.name.toString() + '-' + item.getLink().toString()));
+    menu.getMenu(page)?.getSiteMenuItems()?.forEach((item) =>
+        print(item.name.toString() + '-' + item.getLink().toString()));
   }
 }
